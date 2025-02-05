@@ -1,0 +1,33 @@
+# Dossiers Unity à ignorer
+Library/
+Logs/
+Temp/
+Obj/
+UserSettings/
+
+# Build et caches
+Build/
+Builds/
+MemoryCaptures/
+
+# Fichiers de configuration locaux
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Fichiers de Visual Studio Code et Rider
+.vscode/
+.idea/
+
+# Git LFS pour les fichiers Unity volumineux
+*.dll
+*.dylib
+*.so
+*.mp4
