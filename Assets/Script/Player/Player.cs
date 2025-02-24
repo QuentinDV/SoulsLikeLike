@@ -11,14 +11,10 @@ public class Player : MonoBehaviour
     public int attack = 10;
     public int defense = 5;
 
-    public GameObject weapon;
-
-    
-
     // Update is called once per frame
     void Update()
     {
-        
+
         
     }
 }
