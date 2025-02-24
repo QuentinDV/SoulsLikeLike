@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float RotationSpeed;
 
     private Animator animator; // Pour contrôler les animations
+    private bool isGrounded;
 
     void Start()
     {
@@ -29,16 +30,19 @@ public class PlayerController : MonoBehaviour
         // Animation : gérer la course
         if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
         {
-            animator.SetBool("isRunning", true); // Le joueur se déplace, on active la course
+            animator.SetBool("isWalking", true); 
         }
         else
         {
-            animator.SetBool("isRunning", false); // Le joueur ne se déplace pas, on désactive la course
+            animator.SetBool("isWalking", false); 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(GetComponent<Rigidbody>().linearVelocity.y) < 0.01f)
+        // Vérification si le joueur est au sol avec un Raycast
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.4f);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,JumpHeight,0));
+            GetComponent<Rigidbody>().AddForce(new Vector3(0,JumpHeight,0));
         }
     }
 }
